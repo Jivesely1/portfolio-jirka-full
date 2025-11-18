@@ -1,0 +1,188 @@
+[
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Název projektu"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug",
+        "title": "Slug (URL adresa)"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "title": "Popis"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Obrázek"
+      }
+    ],
+    "name": "project",
+    "type": "document",
+    "title": "Projekty"
+  },
+  {
+    "fields": [
+      {
+        "name": "icon",
+        "type": "string",
+        "title": "Ikona (emoji)"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Název služby"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "title": "Popis"
+      }
+    ],
+    "name": "service",
+    "type": "document",
+    "title": "Služby"
+  },
+  {
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "title": "Jméno klienta"
+      },
+      {
+        "name": "text",
+        "type": "text",
+        "title": "Text reference"
+      },
+      {
+        "name": "company",
+        "type": "string",
+        "title": "Společnost"
+      }
+    ],
+    "name": "testimonial",
+    "type": "document",
+    "title": "Reference"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 2
+              },
+              {
+                "flag": "max",
+                "constraint": 50
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Název technologie"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 2
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Např. ⚛️ 💡 🎨 ⚙️",
+        "name": "emoji",
+        "type": "string",
+        "title": "Emoji ikona"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Frontend",
+              "value": "frontend"
+            },
+            {
+              "title": "Backend",
+              "value": "backend"
+            },
+            {
+              "title": "Databáze",
+              "value": "database"
+            },
+            {
+              "title": "Nástroje / DevOps",
+              "value": "tools"
+            }
+          ],
+          "layout": "dropdown"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "frontend",
+                  "backend",
+                  "database",
+                  "tools"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "category",
+        "type": "string",
+        "title": "Kategorie"
+      }
+    ],
+    "name": "skill",
+    "type": "document",
+    "title": "Technologie (Skill)"
+  }
+]

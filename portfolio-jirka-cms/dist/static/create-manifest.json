@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "createdAt": "2025-11-18T06:19:57.157Z",
+  "workspaces": [
+    {
+      "name": "default",
+      "title": "Portfolio Jirka CMS",
+      "basePath": "/",
+      "dataset": "production",
+      "schema": "9af2338c.create-schema.json"
+    }
+  ]
+}

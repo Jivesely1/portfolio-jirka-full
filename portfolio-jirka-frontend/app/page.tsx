@@ -128,11 +128,11 @@ export default function PortfolioPage() {
 
       {/* Navigace */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl shadow-lg border-b border-indigo-100">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4 h-16">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3 h-16">
           <a
             href="#uvod"
             onClick={handleSmoothScroll}
-            className="text-2xl font-extrabold text-indigo-700"
+            className="text-xl sm:text-2xl font-extrabold text-indigo-700"
           >
             &lt;JirkaVeselý /&gt;
           </a>
@@ -207,39 +207,42 @@ export default function PortfolioPage() {
         {/* Úvod */}
         <motion.section
           id="uvod"
-          className="bg-gradient-to-br from-indigo-50 to-white py-24 min-h-[85vh] flex items-center"
+          className="bg-gradient-to-br from-indigo-50 to-white py-16 md:py-24 min-h-[75vh] flex items-center"
           variants={fadeInVariants}
           initial="initial"
           whileInView="animate"
         >
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center px-4">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center px-4">
+            {/* Text */}
             <div>
-              <h1 className="text-5xl font-extrabold mb-4 text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 leading-tight">
                 Váš <span className="text-indigo-600">Full-Stack</span> partner pro inovace
               </h1>
-              <p className="text-lg mb-8 text-gray-600">
+              <p className="text-base sm:text-lg mb-8 text-gray-600">
                 Přeměňuji nápady na výkonné webové aplikace s elegantním kódem a skvělým UX.
               </p>
               <a
                 href="#kontakt"
                 onClick={handleSmoothScroll}
-                className="inline-block px-8 py-3 bg-indigo-600 text-white text-lg font-bold rounded-full shadow-xl hover:bg-indigo-700"
+                className="inline-block px-6 sm:px-8 py-3 bg-indigo-600 text-white text-lg font-bold rounded-full shadow-xl hover:bg-indigo-700"
               >
                 Mám zájem o web
               </a>
             </div>
 
+            {/* Obrázek */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
+              className="flex justify-center"
             >
               <Image
                 src="https://placehold.co/600x480/4f46e5/ffffff?text=Notebook"
                 alt="Notebook s kódem"
                 width={600}
                 height={480}
-                className="rounded-3xl shadow-2xl border-4 border-white"
+                className="w-full h-auto max-w-sm sm:max-w-md rounded-3xl shadow-2xl border-4 border-white"
                 priority
               />
             </motion.div>
@@ -249,7 +252,7 @@ export default function PortfolioPage() {
         {/* O mně */}
         <motion.section
           id="o-mne"
-          className="py-20 bg-white"
+          className="py-16 md:py-20 bg-white"
           variants={fadeInVariants}
           initial="initial"
           whileInView="animate"
@@ -257,8 +260,10 @@ export default function PortfolioPage() {
         >
           <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-3 gap-10 items-center">
             <div className="md:col-span-2">
-              <h3 className="text-3xl font-bold mb-4 text-indigo-600">Kdo jsem a co dělám?</h3>
-              <p className="text-gray-700 mb-4 text-lg">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-indigo-600">
+                Kdo jsem a co dělám?
+              </h3>
+              <p className="text-gray-700 mb-4 text-base sm:text-lg">
                 Specializuji se na kompletní vývoj webových aplikací — od Next.js frontendů po
                 Node.js backendy.
               </p>
@@ -272,7 +277,7 @@ export default function PortfolioPage() {
                 alt="Jirka Veselý"
                 width={200}
                 height={200}
-                className="rounded-full w-48 h-48 object-cover mx-auto border-4 border-indigo-200 shadow-xl"
+                className="rounded-full w-40 h-40 sm:w-48 sm:h-48 object-cover mx-auto border-4 border-indigo-200 shadow-xl"
               />
             </motion.div>
           </div>
@@ -280,8 +285,8 @@ export default function PortfolioPage() {
 
         {/* Dovednosti */}
         <section id="dovednosti" className="py-16 bg-gray-100 text-center">
-          <h3 className="text-3xl font-bold mb-12">Můj technologický Stack 🛠️</h3>
-          <div className="flex flex-wrap justify-center gap-4">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12">Můj technologický Stack 🛠️</h3>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 px-4">
             {skills.length === 0 ? (
               <p className="text-gray-500">Načítám dovednosti...</p>
             ) : (
@@ -289,7 +294,7 @@ export default function PortfolioPage() {
                 <motion.div
                   key={s._id}
                   whileHover={{ scale: 1.1 }}
-                  className="px-6 py-3 border-2 border-indigo-400 text-indigo-700 font-bold rounded-full bg-white shadow-lg flex items-center gap-2"
+                  className="px-4 sm:px-6 py-2 sm:py-3 border-2 border-indigo-400 text-indigo-700 font-bold rounded-full bg-white shadow-lg flex items-center gap-2 text-sm sm:text-base"
                 >
                   <span>{s.icon ?? "💡"}</span> {s.name}
                 </motion.div>
@@ -299,15 +304,15 @@ export default function PortfolioPage() {
         </section>
 
         {/* Portfolio */}
-        <section id="portfolio" className="py-24 bg-white text-center">
-          <h3 className="text-3xl font-bold mb-8 text-gray-800">
+        <section id="portfolio" className="py-20 md:py-24 bg-white text-center">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-800">
             Vaše projekty, moje řešení 🏆
           </h3>
 
           {projects.length === 0 ? (
             <p className="text-gray-500">Načítám projekty...</p>
           ) : (
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-4">
               {projects.map((p) => (
                 <motion.div
                   key={p._id}
@@ -330,16 +335,18 @@ export default function PortfolioPage() {
                     </motion.div>
                   )}
 
-                  <div className="p-6 text-left">
+                  <div className="p-5 sm:p-6 text-left">
                     <Link href={`/projekty/${p.slug?.current || ""}`}>
-                      <h4 className="text-xl font-bold text-indigo-600 mb-2 hover:underline">
+                      <h4 className="text-lg sm:text-xl font-bold text-indigo-600 mb-2 hover:underline">
                         {p.title}
                       </h4>
                     </Link>
-                    <p className="text-gray-600 mb-4">{p.description}</p>
+                    <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                      {p.description}
+                    </p>
                     <Link
                       href={`/projekty/${p.slug?.current || ""}`}
-                      className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-800"
+                      className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-800 text-sm sm:text-base"
                     >
                       Zobrazit více
                       <span className="ml-1 text-lg">→</span>
@@ -352,9 +359,11 @@ export default function PortfolioPage() {
         </section>
 
         {/* Služby */}
-        <section id="sluzby" className="py-24 bg-indigo-50 text-center">
-          <h3 className="text-3xl font-bold mb-12 text-gray-800">Co pro vás mohu udělat?</h3>
-          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">
+        <section id="sluzby" className="py-20 md:py-24 bg-indigo-50 text-center">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-gray-800">
+            Co pro vás mohu udělat?
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto px-4">
             {services.length === 0 ? (
               <p className="text-gray-500">Načítám služby...</p>
             ) : (
@@ -362,11 +371,13 @@ export default function PortfolioPage() {
                 <motion.div
                   key={s._id}
                   whileHover={{ y: -8 }}
-                  className="p-8 rounded-3xl bg-white shadow-xl border-b-4 border-indigo-500 text-left"
+                  className="p-6 sm:p-8 rounded-3xl bg-white shadow-xl border-b-4 border-indigo-500 text-left"
                 >
-                  <div className="text-4xl mb-4">{s.icon}</div>
-                  <h4 className="text-xl font-bold mb-3 text-indigo-700">{s.title}</h4>
-                  <p className="text-gray-600">{s.description}</p>
+                  <div className="text-3xl sm:text-4xl mb-4">{s.icon}</div>
+                  <h4 className="text-lg sm:text-xl font-bold mb-3 text-indigo-700">
+                    {s.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm sm:text-base">{s.description}</p>
                 </motion.div>
               ))
             )}
@@ -374,9 +385,11 @@ export default function PortfolioPage() {
         </section>
 
         {/* Reference */}
-        <section id="reference" className="py-24 bg-white text-center">
-          <h3 className="text-3xl font-bold mb-12 text-gray-800">Co o mně říkají klienti 🗣️</h3>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+        <section id="reference" className="py-20 md:py-24 bg-white text-center">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-gray-800">
+            Co o mně říkají klienti 🗣️
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-4">
             {references.length === 0 ? (
               <p className="text-gray-500">Načítám reference...</p>
             ) : (
@@ -384,11 +397,11 @@ export default function PortfolioPage() {
                 <motion.div
                   key={r._id}
                   whileHover={{ y: -6 }}
-                  className="p-8 bg-gray-50 border border-gray-200 rounded-xl shadow-lg text-left"
+                  className="p-6 sm:p-8 bg-gray-50 border border-gray-200 rounded-xl shadow-lg text-left"
                 >
-                  <p className="italic text-gray-700 mb-4">“{r.text}”</p>
-                  <h4 className="font-bold text-indigo-600">{r.name}</h4>
-                  <span className="text-sm text-gray-500">{r.company}</span>
+                  <p className="italic text-gray-700 mb-4 text-sm sm:text-base">“{r.text}”</p>
+                  <h4 className="font-bold text-indigo-600 text-sm sm:text-base">{r.name}</h4>
+                  <span className="text-xs sm:text-sm text-gray-500">{r.company}</span>
                 </motion.div>
               ))
             )}
@@ -396,30 +409,34 @@ export default function PortfolioPage() {
         </section>
 
         {/* Kontakt */}
-        <section id="kontakt" className="py-24 bg-indigo-600 text-white text-center">
-          <div className="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-2xl text-gray-800">
-            <h3 className="text-3xl font-bold mb-4 text-indigo-700">Pojďme to probrat!</h3>
-            <p className="text-gray-600 mb-8">Napište mi a do 24 hodin se ozvu.</p>
+        <section id="kontakt" className="py-20 md:py-24 bg-indigo-600 text-white text-center">
+          <div className="max-w-3xl mx-auto bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-2xl text-gray-800">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-indigo-700">
+              Pojďme to probrat!
+            </h3>
+            <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+              Napište mi a do 24 hodin se ozvu.
+            </p>
             <form className="space-y-4">
               <input
                 type="text"
                 placeholder="Tvé jméno *"
-                className="w-full border rounded-lg p-3"
+                className="w-full border rounded-lg p-3 text-sm sm:text-base"
                 required
               />
               <input
                 type="email"
                 placeholder="Tvůj e-mail *"
-                className="w-full border rounded-lg p-3"
+                className="w-full border rounded-lg p-3 text-sm sm:text-base"
                 required
               />
               <textarea
                 placeholder="Tvá zpráva *"
                 rows={5}
-                className="w-full border rounded-lg p-3"
+                className="w-full border rounded-lg p-3 text-sm sm:text-base"
                 required
               ></textarea>
-              <button className="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700">
+              <button className="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 text-sm sm:text-base">
                 Odeslat zprávu
               </button>
             </form>

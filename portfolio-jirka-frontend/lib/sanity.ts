@@ -1,12 +1,15 @@
 import { createClient } from "next-sanity";
 
-// ✅ Sanity klient
+console.log("PROJECT_ID:", process.env.NEXT_PUBLIC_SANITY_PROJECT_ID);
+console.log("DATASET:", process.env.NEXT_PUBLIC_SANITY_DATASET);
+
 export const client = createClient({
-  projectId: "sjl39asi",
-  dataset: "production",
-  apiVersion: "2025-01-01",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+  apiVersion: "2023-10-01",
   useCdn: true,
 });
+
 
 // 📦 Typy dat
 export interface SanityProject {
